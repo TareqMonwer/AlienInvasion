@@ -1,6 +1,6 @@
 # Alien Invasion Game
 
-[![N|Solid](https://www.pygame.org/images/logo_lofi.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://www.pygame.org/images/logo_lofi.png)](https://www.pygame.org/wiki/about)
 
 "Alien Invasion" is game that functions:
 
