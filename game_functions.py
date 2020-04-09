@@ -48,3 +48,14 @@ def update_screen(ai_settings, screen, ship, bullets):
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
+
+
+def update_bullets(bullets):
+    """Update position of bullets and get rid of old bullets."""
+    # Update bullet positions.
+    bullets.update()
+
+    # Get rid of bullets that have disappeared.
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
