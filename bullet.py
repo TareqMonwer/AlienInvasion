@@ -11,18 +11,18 @@ class Bullet(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) and then set correct position.
-        slef.rect = pygame.Rect(0, 0, ai_settings.bullet_settings,
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
                                 ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
         # Store bullets position as a decimal value.
-        slef.y = float(self.rect.y)
+        self.y = float(self.rect.y)
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
 
-    def updat(self):
+    def update(self):
         """Move the bullet up the screen"""
         # Update the decimal position of the bullet.
         self.y -= self.speed_factor
@@ -31,4 +31,4 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         """Draw the bullet to the screen."""
-        pygame.draw.rect(self.screen, self.color, slef.rect)
+        pygame.draw.rect(self.screen, self.color, self.rect)
