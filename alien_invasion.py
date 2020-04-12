@@ -33,6 +33,9 @@ def run_game():
         # Update bullets
         gf.update_bullets(bullets)
 
+        # Update alien positions
+        gf.update_aliens(ai_settings, aliens)
+
         # Redraw the screen during each pass through the loop.
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
