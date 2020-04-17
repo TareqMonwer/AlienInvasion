@@ -13,21 +13,14 @@ class Settings:
         self.ship_limit = 3
 
         # Bullets settings
-        # self.bullet_speed_factor = 6
-        self.bullet_width = 360
+        self.bullet_width = 5
         self.bullet_height = 15
         self.bullet_color = 60, 60, 60
         self.bullets_allowed = 3
-
-        # Alien settings
-        # self.alien_speed_factor = 2
-        # fleet_direction of 1 represents right; -1 represents left.
-        # self.fleet_direction = 1   # right
         self.fleet_drop_speed = 10
 
         # How quickly the speeds up
-        self.speedup_scale = 1.1
-
+        self.speedup_scale = 1.5
         self.initialize_dynamic_settings()
 
     def initialize_dynamic_settings(self):
