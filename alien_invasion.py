@@ -35,7 +35,7 @@ def run_game():
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
-        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens)
+        gf.check_events(ai_settings, screen, score_board, ship, bullets, stats, play_button, aliens)
 
         if stats.game_active:
             # Ship move control
