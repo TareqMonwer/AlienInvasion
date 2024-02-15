@@ -4,7 +4,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing Settings Values'
-        sh 'pip install pygame'
+        sh '''python --version
+pip install pygame'''
       }
     }
 
