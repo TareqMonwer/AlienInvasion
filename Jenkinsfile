@@ -1,15 +1,20 @@
 pipeline {
-  agent any
-  stages {
-    stage('Test') {
-      steps {
-        echo 'Testing Settings Values'
-        sh '''sudo apt-get update
-sudo apt-get install python3
-sudo apt-get install python3-pip
-python3 --version'''
-      }
-    }
+    agent any
 
-  }
+    stages {
+        stage('Test') {
+            steps {
+                script {
+                    // Ensure Python3 is installed and check its version
+                    sh 'python3 --version'
+
+                    // Install pygame library using pip
+                    sh 'pip install pygame'
+
+                    // Print hello world using Python
+                    sh 'python3 -c "print(\'Hello, World!\')"'
+                }
+            }
+        }
+    }
 }
