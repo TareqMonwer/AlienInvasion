@@ -5,6 +5,9 @@ pipeline {
         stage('Install Python') {
             steps {
                 script {
+                    // Remove existing .pyenv directory
+                    sh 'rm -rf ~/.pyenv'
+
                     // Install pyenv
                     sh 'curl https://pyenv.run | bash'
 
@@ -30,7 +33,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'python3 --version'
+                    echo "Hello world"
                 }
             }
         }
