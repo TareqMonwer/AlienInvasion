@@ -1,23 +1,22 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.8-alpine'
+        }
+    }
 
     stages {
         stage('Test') {
             steps {
                 script {
-                    sh 'sudo usermod -aG sudo jenkins'
-                    
-                    // Install Python3
-                    sh 'apt-get update && apt-get install -y python3'
-
                     // Ensure Python3 is installed and check its version
-                    sh 'python3 --version'
+                    sh 'python --version'
 
                     // Install pygame library using pip
                     sh 'pip install pygame'
 
                     // Print hello world using Python
-                    sh 'python3 -c "print(\'Hello, World!\')"'
+                    sh 'python -c "print(\'Hello, World!\')"'
                 }
             }
         }
