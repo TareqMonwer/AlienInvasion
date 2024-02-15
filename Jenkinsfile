@@ -5,7 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'usermod -aG sudo jenkins'
+                    sh 'sudo usermod -aG sudo jenkins'
                     
                     // Install Python3
                     sh 'apt-get update && apt-get install -y python3'
