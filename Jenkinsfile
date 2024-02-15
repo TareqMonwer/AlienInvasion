@@ -2,38 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Python') {
-            steps {
-                script {
-                    // Remove existing .pyenv directory
-                    sh 'rm -rf ~/.pyenv'
-
-                    // Install pyenv
-                    sh 'curl https://pyenv.run | bash'
-
-                    // Add pyenv to the PATH and source initialization script
-                    sh 'export PYENV_ROOT="$HOME/.pyenv"'
-                    sh 'export PATH="$PYENV_ROOT/bin:$PATH"'
-                    sh 'eval "$(pyenv init --path)"'
-                    sh 'eval "$(pyenv virtualenv-init -)"'
-
-                    // Source the initialization script in the current shell
-                    sh 'source ~/.bashrc || source ~/.bash_profile || true'
-
-                    // Install Python 3.8.12
-                    sh 'pyenv install 3.8.12'
-                    sh 'pyenv global 3.8.12'
-
-                    // Verify Python installation
-                    sh 'python --version'
-                }
-            }
-        }
-
         stage('Test') {
             steps {
                 script {
-                    echo "Hello world"
+                    // Ensure Python3 is installed and check its version
+                    sh 'python --version'
+
+                    // Install pygame library using pip
+                    sh 'pip install pygame'
+
+                    // Print hello world using Python
+                    sh 'python -c "print(\'Hello, World!\')"'
                 }
             }
         }
