@@ -6,13 +6,13 @@ pipeline {
             steps {
                 script {
                     // Ensure Python3 is installed and check its version
-                    sh 'python --version'
+                    sh 'python3 --version'
 
                     // Install pygame library using pip
-                    sh 'pip install pygame'
+                    sh 'pip3 install pygame'
 
                     // Print hello world using Python
-                    sh 'python -c "print(\'Hello, World!\')"'
+                    sh 'python3 -c "print(\'Hello, World!\')"'
                 }
             }
         }
