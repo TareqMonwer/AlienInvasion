@@ -12,17 +12,18 @@ class AlienInvasion:
 
     def __init__(self):
         """Initialize the game, and create resources."""
-        pygame.init()
-        # Initialize settings for applying game settings.
         self.settings = Settings()
+        self.screen = None
+        self.ship = None
+        self.bullets = None
 
-        # Create window with title.
+    def initialize_game(self):
+        """Create window with title and initialize other game resources."""
+        pygame.init()
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Classy Alien Invasion")
-
-        # Initialize the ship
-        self.ship = Ship(self)   # pass self as the ai_game argument of Ship.
+        self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
 
     def run_game(self):
@@ -86,4 +87,5 @@ class AlienInvasion:
 if __name__ == "__main__":
     # Make a game instance, and run game.
     ai = AlienInvasion()
+    ai.initialize_game()
     ai.run_game()
